@@ -69,6 +69,6 @@ system(cmd)
 
 end
 
-# Extraction of Leaf traits
+# Extraction of Leaf Traits (ELT)
 
 
