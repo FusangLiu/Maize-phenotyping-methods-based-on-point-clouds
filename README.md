@@ -5,7 +5,7 @@ There are maize phenotyping methods including organ segmentation, leaf traits ex
 Liu, F., Song, Q., Zhao, J., Mao, L., Bu, H., Hu, Y. and Zhu, X.-G. (2021), Canopy occupation volume as an indicator of canopy photosynthetic capacity. New Phytologist. NPH17611. https://doi.org/10.1111/nph.17611
 
 # Software information
-This software is based on MATLAB R2020b.Before you use the software, you should verify that version 9.9 (R2020b) of the MATLAB Runtime is installed.   
+These softwares are based on MATLAB R2020b.Before you use the software, you should verify that version 9.9 (R2020b) of the MATLAB Runtime is installed.   
 If not, you can download and install the Windows version of the MATLAB Runtime for R2020b 
 from the following link on the MathWorks website:
 https://www.mathworks.com/products/compiler/mcr/index.html
