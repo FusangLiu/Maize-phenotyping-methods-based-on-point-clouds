@@ -95,3 +95,30 @@ The leaf area was estimated by a meshed leaf model consisting of triangles(Fig. 
 ![alt text](https://github.com/FusangLiu/Maize-phenotyping-methods-based-on-point-clouds/blob/main/ELT/Fig_3.PNG)
 Fig. 2 An example of Zea mays leaf architectural trait extraction. Leaf length (a, red line) is the distance of the shortest path between the leaf base and the leaf tip. Leaf width (a, yellow line) is the distance of the shortest path between points between leaf edges. The smooth leaf edge (a, blue line), which is defined as the leaf edge with the distortion and undulation removed, was used to evaluate the leaf flatness and leaf smoothness. The sub-figure is a special case during the extraction of the leaf tip, purple and grey lines indicate points belonging to Part 1(a, purple line) and Part 2(a, grey line), respectively. Leaf area was calculated by the meshed point clouds (b)
 
+## Input and Output
+Input: input stem file path,input leaf file path, output name, scale of converting to a centimeter, display
+
+
+Output：txt file including LeafBase, leafLength.Leaf width at 0.1, 1/4, 1/2 and 3/4 of leaf length from the leaf base (i.e, leafWidth(0.1),leafWidth(0.25), leafWidth(0.5),  leafWidth(0.75)), leafAngle, The leaf area (leafArea_tri), The leaf area estimated by leaf shape model(LeafArea_shape), PAp(projectedArea_pc), PAe(projectedArea_se)
+
+## Examples:
+### Using the software in the windows DOS command line:
+
+E:\ELT\ELT.exe "E:\ELT\stem_t.ply" "E:\ELT\leaf_t1.ply" "E:\ELT\leaf_t1" 100 1
+
+### Using the software in the MATLAB:
+
+cmd=['E:\ELT\ELT.exe "E:\ELT\stem_t.ply" "E:\ELT\leaf_t1.ply" "E:\ELT\leaf_t1" 100 1']; 
+
+system(cmd)
+
+### The software supports parallel computing in the MATLAB.
+parfor i=1:3
+
+cmd=strcat("E:\ELT\ELT.exe ","E:\ELT\stem_t.ply ","E:\ELT\leaf_t",num2str(i),".ply ","E:\ELT\leaf_t",num2str(i)," 100 1"');
+
+system(cmd)
+
+end
+
+
