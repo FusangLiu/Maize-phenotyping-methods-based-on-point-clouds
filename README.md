@@ -25,13 +25,13 @@ input file path, point clouds name, output file path, output plant model name, K
 Output: organ point clouds
 
 
-## Note: 
+## Notes: 
 1) The input point clouds is must from the PLY or PCD file
 2) The output point clouds is the PLY file.
 3) The density of point clouds can affect the skeletonization result hence affecting the final result. However, the sparse point clouds can calculate faster. 
 
 
-## Example:
+## Examples:
 ### Using the software in the windows DOS command line:
 
 E:\MOSPC\MOSPC.exe "E:\MOSPC" "test_small_1.ply" "E:\MOSPC" "small_1"
