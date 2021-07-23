@@ -148,6 +148,9 @@ system(cmd)
 
 ### The software supports parallel computing in the MATLAB.
 parfor i=1:3
+
 cmd=strcat("E:\CIDPC\CIDPC.exe ","E:\CIDPC\stem_t.ply ","E:\CIDPC\leaf_t",num2str(i),".ply ","E:\CIDPC ","leaf_t",num2str(i)," 1.2 1.2 0.5 1"');
+
 system(cmd)
+
 end
