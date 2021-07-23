@@ -101,6 +101,9 @@ Input: input stem file path,input leaf file path, output name, scale of converti
 
 Output：txt file including LeafBase, leafLength.Leaf width at 0.1, 1/4, 1/2 and 3/4 of leaf length from the leaf base (i.e, leafWidth(0.1),leafWidth(0.25), leafWidth(0.5),  leafWidth(0.75)), leafAngle, The leaf area (leafArea_tri), The leaf area estimated by leaf shape model(LeafArea_shape), PAp(projectedArea_pc), PAe(projectedArea_se)
 
+## Notes: 
+1) The input point clouds is must from the PLY or PCD file
+
 ## Examples:
 ### Using the software in the windows DOS command line:
 
@@ -125,3 +128,26 @@ end
 The method can change the leaf architecture(leaf length, width and the angle) via changing the coordinates of leaf point clouds. At first, the point clouds of selected leaves were standardised with three steps. 1) The main direction of the selected leaf in the horizontal plane was calculated by the x and y coordinates of point clouds of the selected leaf based on the PCA algorithm. 2) The angle between the main direction and the positive direction of the x-axis was calculated. 3) The point clouds of the selected leaf were rotated to the positive direction of the x-axis around the leaf base point according to the calculated angle (Fig. 3a). Secondly, the corresponding leaf architecture was changed. In terms of changing leaf length (Fig. 3a), the x and z coordinates of the point clouds of the selected leaf were multiplied by the set percentages change of leaf length to increase or decrease the leaf length. Regrading changing leaf width (Fig. 3b), the y coordinates of the point clouds of the selected leaf were multiplied by the set percentages change of leaf width to increase or decrease the leaf width. To ensure the accuracy of percentages change in leaf length and leaf width, the actual percentages change was calculated by the changed leaf length or the maximal leaf width dividing original leaf length or the maximal leaf width, and the actual percentages change was compared with the set percentages change. If the relative error between the actual percentages change and the set percentages change is more than 5%, the changed point clouds will change again with a new percentage change calculated by the set percentages change dividing the actual percentage change. In terms of changing leaf angle (Fig. 3c), coordinates of the point clouds of the selected leaf were multiplied by corresponded rotated matrix to rotate around the y-axis with the set percentages change. If the leaf angle of an individual leaf decreases to 0 degrees, the leaf angle of the individual leaf will stay unchanged rather than becoming a negative value. Similarly, if the leaf angle of an individual leaf increases to 90 degrees, the leaf angle of the individual leaf will stay unchanged. Finally, after changing the architectural traits of leaves, the changed leaves were rotated to their original position.
 ![alt text](https://github.com/FusangLiu/Maize-phenotyping-methods-based-on-point-clouds/blob/main/CIDPC/Fig_4.PNG)
 Fig. 3 An example of the new ideotype design method. The example is based on point clouds of Zea mays plants. The leaf length (a) and the leaf width (b) of original point clouds (red point clouds) were increased by 20% (blue point clouds). The leaf angle (c) of original point clouds was reduced by 20 degrees. 
+
+## Input and Output
+Input: input stem file path,input leaf file path, output path,output name,the percentage change of leaf length,the percentage change of leaf width,the percentage change of leaf angle, display
+
+Output：the changed leaf point clouds
+
+## Notes: 
+1) The input point clouds is must from the PLY or PCD file
+2) The output point clouds is the PLY file.
+
+## Examples:
+### Using the software in the windows DOS command line:
+E:\CIDPC\CIDPC.exe "E:\CIDPC\stem_t.ply" "E:\CIDPC\leaf_t1.ply" "E:\CIDPC" "leaf_t1" 1.2 1.2 0.5 1
+
+### Using the software in the MATLAB:
+cmd=['E:\CIDPC\CIDPC.exe "E:\CIDPC\stem_t.ply" "E:\CIDPC\leaf_t1.ply" "E:\CIDPC" "leaf_t1" 1.2 1.2 0.5 1'];
+system(cmd)
+
+### The software supports parallel computing in the MATLAB.
+parfor i=1:3
+cmd=strcat("E:\CIDPC\CIDPC.exe ","E:\CIDPC\stem_t.ply ","E:\CIDPC\leaf_t",num2str(i),".ply ","E:\CIDPC ","leaf_t",num2str(i)," 1.2 1.2 0.5 1"');
+system(cmd)
+end
