@@ -162,6 +162,7 @@ Fig. 4 The canopy occupation volume in normal view (a), front view (b) and top v
 
 ## Input and Output
 Input input model file path,input file path,scale of converting to a meter(default 1), voxel size(default 0.01), display(default 0)
+
 Output：txt file including COV
 
 ## Notes: 
