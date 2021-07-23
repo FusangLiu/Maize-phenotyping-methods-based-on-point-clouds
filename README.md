@@ -20,7 +20,7 @@ Fig.1 A pipeline of Zea mays plant organ segmentation. The plant point clouds of
 
 ## Input and Output
 Input:
-input file path, point clouds name, output file path, output plant model name, KNN number of skeletonization (default 20),sample scale of skeletonization (default 0.025), dispaly of skeletonization (default 0), dispaly of classfication result based on the skeleton (default 0),KNN number of region growing for whole plant(default 5),threshold of curvature of region growing for whole plant (default 0.1),threshold of angle of region growing for whole plant (default 30), display of region growing for whole plant (default 0), KNN number of region growing for unclassfied points(default 5), threshold of curvature of region growing for unclassfied points(default 0.1),threshold of angle of region growing for unclassfied points (default 15), display of region growing for unclassfied points ((default 0), threshold of angle for classifying stem (default 10), threshold of cluster size for merging unclassified clusters(default 20), display of the segmentation result (default 1) 
+input file path, point clouds name, output file path, output plant model name, KNN number of skeletonization (default 20),sample scale of skeletonization (default 0.025), dispaly of skeletonization (default 0), dispaly of classfication result based on the skeleton (default 0),KNN number of region growing for whole plant(default 5),threshold of curvature of region growing for whole plant (default 0.1),threshold of angle of region growing for whole plant (default 30), display of region growing for whole plant (default 0), KNN number of region growing for unclassfied points(default 5), threshold of curvature of region growing for unclassfied points(default 0.1),threshold of angle of region growing for unclassfied points (default 15), display of region growing for unclassfied points (default 0), threshold of angle for classifying stem (default 10), threshold of cluster size for merging unclassified clusters(default 20), display of the segmentation result (default 1) 
 
 Output: organ point clouds
 
@@ -161,7 +161,7 @@ The canopy occupation volume (COV) can better explain the variations of canopy p
 Fig. 4 The canopy occupation volume in normal view (a), front view (b) and top view (c) of a Zea mays plant. The space of the meshed plant was divided into a set of small 3D voxels (blue voxels). If a voxel contains triangles of meshed plant, the voxel is regarded as the occupied voxel (yellow voxels). The sum of occupied voxel volume is the canopy occupation volume. The size of voxels is 20 cm×20 cm×20cm in this main figure and is 1 cm×1 cm×1cm in calculation (a, sub-fig). 
 
 ## Input and Output
-Input input model file path,input file path,scale of converting to a meter, voxel size, display
+Input input model file path,input file path,scale of converting to a meter(default 1), voxel size(default 0.01), display(default 0)
 Output：txt file including COV
 
 ## Notes: 
@@ -169,16 +169,20 @@ Output：txt file including COV
 
 ## Examples:
 ### Using the software in the windows DOS command line:
-E:\CIDPC\CIDPC.exe "E:\CIDPC\stem_t.ply" "E:\CIDPC\leaf_t1.ply" "E:\CIDPC" "leaf_t1" 1.2 1.2 0.5 1
+E:\COV\COV.exe "E:\COV\example_maize_pm.ply" "E:\COV\example_maize" 
+E:\COV\COV.exe "E:\COV\example_maize_pm.ply" "E:\COV\example_maize" 1 0.3 1
 
 ### Using the software in MATLAB:
-cmd=['E:\CIDPC\CIDPC.exe "E:\CIDPC\stem_t.ply" "E:\CIDPC\leaf_t1.ply" "E:\CIDPC" "leaf_t1" 1.2 1.2 0.5 1'];
+cmd=['E:\COV\COV.exe "E:\COV\example_maize_pm.ply" "E:\COV\example_maize"'];
+system(cmd)
+
+cmd=['E:\COV\COV.exe "E:\COV\example_maize_pm.ply" "E:\COV\example_maize" 1 0.3 1'];
 system(cmd)
 
 ### The software supports parallel computing in MATLAB.
-parfor i=1:3
+parfor i=1:2
 
-cmd=strcat("E:\CIDPC\CIDPC.exe ","E:\CIDPC\stem_t.ply ","E:\CIDPC\leaf_t",num2str(i),".ply ","E:\CIDPC ","leaf_t",num2str(i)," 1.2 1.2 0.5 1"');
+cmd=strcat("E:\COV\COV.exe ","E:\COV\example_maize_pm_",num2str(i),".ply ","E:\COV\example_maize_pm_",num2str(i)," 1 0.3 1");
 
 system(cmd)
 
