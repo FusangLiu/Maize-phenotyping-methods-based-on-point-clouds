@@ -29,7 +29,8 @@ Output: organ point clouds
 1) The input point clouds must be from the PLY or PCD file
 2) The output point clouds is the PLY file.
 3) The density of point clouds can affect the skeletonization result hence affecting the final result. However, the sparse point clouds can calculate faster. 
-
+4）The scale of point clouds should be meter.
+5) The lowest stem point has to be set as [0 0 0].
 
 ## Examples:
 ### Using the software in the windows DOS command line:
