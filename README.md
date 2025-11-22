@@ -4,12 +4,12 @@ There are maize phenotyping methods including organ segmentation, leaf traits ex
 # Reference 
 Liu, F., Song, Q., Zhao, J., Mao, L., Bu, H., Hu, Y. and Zhu, X.-G. (2021), Canopy occupation volume as an indicator of canopy photosynthetic capacity. New Phytologist. NPH17611. https://doi.org/10.1111/nph.17611
 
+The methods can be freely used for academic purposes. For commercial purposes, a special license is required.
 # Software information
 These softwares are based on MATLAB R2020b.Before you use the software, you should verify that version 9.9 (R2020b) of the MATLAB Runtime is installed.   
 If not, you can download and install the Windows version of the MATLAB Runtime for R2020b 
 from the following link on the MathWorks website:
 https://www.mathworks.com/products/compiler/mcr/index.html
-
 
 # Maize Organ Segmentation based on Point Clouds (MOSPC)
 This method based on the skeleton and region growing algorithm was developed to segment plant organs, i.e., leaves and a stem. Firstly, the denoised point clouds of each plant were processed with a Laplacian based method to generate plant skeleton points, a connectivity matrix of skeleton points and an incidence matrix between point clouds and skeleton points (Fig. 1a). The Laplacian based method is a contraction operation that is designed to work on point clouds via local Delaunay triangulation and topological thinning. Secondly, a region growing algorithm was used to divide point clouds into clusters (Fig. 1d) according to the curvatures and angles of the normal vectors changing along the organ surface. The plant organ segmentation includes three parts, i.e., leaf skeleton extraction, classification of point clouds clusters and unclassified clusters merging. Reference leaf point clouds (Fig. 1c) were obtained from the plant point clouds according to the leaf skeletons. According to reference leaf point clouds and angles between clusters and stem direction, small clusters (Fig. 1d) were classified to organ point clouds (Fig. 1e) and unclassified point clouds. The unclassified point clouds were classified into clusters by the region growing method (Fig. 1f). The larger clusters from unclassified point clouds were merged into organ point clouds (Fig. 1g) according to the similarity of normal and curvature of points between the larger cluster and neighbouring organ point clouds. Finally, the remaining clusters were merged into organ point clouds by a Euclidean distance-based method. 
